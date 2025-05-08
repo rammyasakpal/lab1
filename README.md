@@ -1,27 +1,21 @@
-# Lab 1
+Binary Record Sorter in Go
 
-CSE 124/224 Spring 2025 Lab 1 Starter Code
+This project implements a high-performance file sorter for fixed-format binary records, built in Go. It demonstrates system-level programming skills, binary parsing, and efficient memory handling—key areas of interest for infrastructure and network.
 
-This repository contains the utilities that you'll use for lab 1.  The
-utilities are provided in binary form for a few common systems/architectures.
+Overview
+The program reads a file containing variable-length binary records with:
+- A 4-byte big-endian length prefix
+- A 10-byte fixed key
+- A variable-length value
 
-## Building
+It sorts the records lexicographically by key and writes the sorted output to a new binary file.
 
-To build your sort program:
+Features
 
-$ go build -o bin/sort src/sort.go
+- Efficient memory-safe parsing of custom binary record structures
+- Sorting logic built with sort.Slice and bytes.Compare for byte-level precision
+- Designed for system-level file handling and I/O performance
+- Validates record length and handles malformed or truncated input robustly
 
-
-## Submission
-
-Your submission should include your code in the `src` directory (and
-should be able to be built with the above command)
-
-You should include a file called report.pdf that has the runtime plot
-described in the lab spec.
-
-## Checklist
-
-* Your sort implementation in src/sort.go
-* A lab report in report.pdf (stored in the base directory)
-
+How to Build
+bash : go build -o bin/sort src/sort.go
